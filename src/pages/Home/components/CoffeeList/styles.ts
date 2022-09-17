@@ -73,6 +73,7 @@ export const CoffeeTypeContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  text-transform: uppercase;
 
   color: ${(props) => props.theme['yellow-700']};
 

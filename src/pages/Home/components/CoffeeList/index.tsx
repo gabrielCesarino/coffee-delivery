@@ -14,7 +14,7 @@ interface CoffeeProps {
   imgLink: string
   name: string
   description: string
-  type: string[]
+  types: string[]
   price: number
 }
 
@@ -39,9 +39,9 @@ export function CoffeeList() {
             <li key={coffee.id}>
               <img src={coffee.imgLink} alt={coffee.name} />
               <CoffeeTypeContainer>
-                <span>TRADICIONAL</span>
-                <span>GELADO</span>
-                <span>MAQUIATO</span>
+                {coffee.types.map((coffeeType) => {
+                  return <span key={coffeeType}>{coffeeType}</span>
+                })}
               </CoffeeTypeContainer>
               <h2>{coffee.name}</h2>
               <p>{coffee.description}</p>
