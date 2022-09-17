@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.main`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
 `
 export const IntroContainer = styled.section`
   display: flex;

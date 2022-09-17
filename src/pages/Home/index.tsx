@@ -8,6 +8,7 @@ import {
 import { ShoppingCart, Timer, Package, Coffee } from 'phosphor-react'
 
 import CoffeeCupImage from '../../assets/coffee-cup.png'
+import { CoffeeList } from './components/CoffeeList'
 
 export function Home() {
   return (
@@ -51,6 +52,7 @@ export function Home() {
           alt="Imagem copo de café com grãos ao fundo"
         />
       </IntroContainer>
+      <CoffeeList />
     </HomeContainer>
   )
 }
