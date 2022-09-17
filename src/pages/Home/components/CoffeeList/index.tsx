@@ -14,9 +14,7 @@ interface CoffeeProps {
   imgLink: string
   name: string
   description: string
-  type: {
-    tradicional: boolean
-  }
+  type: string[]
   price: number
 }
 
