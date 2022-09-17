@@ -23,7 +23,7 @@ export const CoffeeListContainer = styled.main`
 
       background: ${(props) => props.theme['gray-200']};
 
-      padding: 1rem;
+      padding: 1.5rem;
 
       border-radius: 6px 36px 6px 36px;
       gap: 0.75rem;
@@ -31,7 +31,7 @@ export const CoffeeListContainer = styled.main`
       text-align: center;
 
       img {
-        margin-top: -32px;
+        margin-top: -50px;
       }
 
       h2 {
