@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
 
 export const LocationContainer = styled.span`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 0.5rem;
   margin-right: 0.75rem;
 
