@@ -16,6 +16,7 @@ export function Header() {
           <p>Carapicuíba, SP</p>
         </LocationContainer>
         <CartContainer title="Carrinho">
+          <span>1</span>
           <ShoppingCart
             size={22}
             color="#C47F17"

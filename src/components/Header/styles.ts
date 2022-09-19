@@ -33,6 +33,7 @@ export const LocationContainer = styled.span`
 `
 
 export const CartContainer = styled.span`
+  position: relative;
   display: flex;
   align-items: center;
   padding: 0.5rem;
@@ -43,5 +44,20 @@ export const CartContainer = styled.span`
 
   &:hover {
     cursor: pointer;
+  }
+
+  span {
+    top: -10px;
+    right: -10px;
+    position: absolute;
+    background: ${(props) => props.theme['yellow-700']};
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${(props) => props.theme.white};
   }
 `

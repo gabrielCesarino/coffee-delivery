@@ -17,7 +17,6 @@ interface ProductsContextType {
   decreaseQuantity: (id: string) => void
   addToCart: (id: string) => void
   cart: CoffeeProps[]
-  checkIfItemIsAlreadyOnCart: () => boolean
 }
 
 export const ProductsContext = createContext({} as ProductsContextType)
