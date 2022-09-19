@@ -45,7 +45,7 @@ export function ProductsContextProvider({
 
   function decreaseQuantity(currentCoffeeId: string) {
     const updatedList = coffeeList.map((coffee) => {
-      if (coffee.id === currentCoffeeId) {
+      if (coffee.id === currentCoffeeId && coffee.quantity > 0) {
         return {
           ...coffee,
           quantity: coffee.quantity - 1,

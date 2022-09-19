@@ -1,5 +1,5 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { ProductsContext } from '../../../../context/ProductsContext'
 import {
   AddToCartContainer,
