@@ -1,4 +1,6 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { useContext } from 'react'
+import { ProductsContext } from '../../../../context/ProductsContext'
 import {
   AddToCartContainer,
   CartContainer,
@@ -6,29 +8,18 @@ import {
   CoffeeTypeContainer,
   QuantityContainer,
 } from './styles'
-import { MockAPI } from '../../../../server/MockAPI'
-import { useEffect, useState } from 'react'
 
-interface CoffeeProps {
-  id: string
-  imgLink: string
-  name: string
-  description: string
-  types: string[]
-  price: number
-}
+// interface CoffeeProps {
+//   id: string
+//   imgLink: string
+//   name: string
+//   description: string
+//   types: string[]
+//   price: number
+// }
 
 export function CoffeeList() {
-  MockAPI()
-  const [coffeeList, setCoffeeList] = useState<CoffeeProps[]>([])
-
-  useEffect(() => {
-    fetch('/api/coffeelist')
-      .then((response) => response.json())
-      .then((json) => setCoffeeList(json))
-  }, [])
-
-  console.log(coffeeList)
+  const { coffeeList } = useContext(ProductsContext)
 
   return (
     <CoffeeListContainer>
