@@ -13,6 +13,8 @@ interface CoffeeProps {
 
 interface ProductsContextType {
   coffeeList: CoffeeProps[]
+  addQuantity: (id: string) => void
+  decreaseQuantity: (id: string) => void
 }
 
 export const ProductsContext = createContext({} as ProductsContextType)
@@ -27,6 +29,34 @@ export function ProductsContextProvider({
   MockAPI()
   const [coffeeList, setCoffeeList] = useState<CoffeeProps[]>([])
 
+  function addQuantity(currentCoffeeId: string) {
+    const updatedList = coffeeList.map((coffee) => {
+      if (coffee.id === currentCoffeeId) {
+        return {
+          ...coffee,
+          quantity: coffee.quantity + 1,
+        }
+      } else {
+        return coffee
+      }
+    })
+    setCoffeeList(updatedList)
+  }
+
+  function decreaseQuantity(currentCoffeeId: string) {
+    const updatedList = coffeeList.map((coffee) => {
+      if (coffee.id === currentCoffeeId) {
+        return {
+          ...coffee,
+          quantity: coffee.quantity - 1,
+        }
+      } else {
+        return coffee
+      }
+    })
+    setCoffeeList(updatedList)
+  }
+
   useEffect(() => {
     fetch('/api/coffeelist')
       .then((response) => response.json())
@@ -37,6 +67,8 @@ export function ProductsContextProvider({
     <ProductsContext.Provider
       value={{
         coffeeList,
+        addQuantity,
+        decreaseQuantity,
       }}
     >
       {children}

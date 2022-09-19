@@ -1,5 +1,5 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { ProductsContext } from '../../../../context/ProductsContext'
 import {
   AddToCartContainer,
@@ -10,7 +10,16 @@ import {
 } from './styles'
 
 export function CoffeeList() {
-  const { coffeeList } = useContext(ProductsContext)
+  const { coffeeList, addQuantity, decreaseQuantity } =
+    useContext(ProductsContext)
+
+  function handleAddQuantity(id: string) {
+    addQuantity(id)
+  }
+
+  function handleDecreaseQuantity(id: string) {
+    decreaseQuantity(id)
+  }
 
   return (
     <CoffeeListContainer>
@@ -39,11 +48,21 @@ export function CoffeeList() {
                 <AddToCartContainer>
                   <div>
                     <button>
-                      <Minus color="#8047F8" size={14} weight="bold" />
+                      <Minus
+                        onClick={() => handleDecreaseQuantity(coffee.id)}
+                        color="#8047F8"
+                        size={14}
+                        weight="bold"
+                      />
                     </button>
                     <span>{coffee.quantity}</span>
                     <button>
-                      <Plus color="#8047F8" size={14} weight="bold" />
+                      <Plus
+                        onClick={() => handleAddQuantity(coffee.id)}
+                        color="#8047F8"
+                        size={14}
+                        weight="bold"
+                      />
                     </button>
                   </div>
                   <CartContainer>
