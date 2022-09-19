@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 export function CoffeeList() {
-  const { coffeeList, addQuantity, decreaseQuantity } =
+  const { coffeeList, addQuantity, decreaseQuantity, addToCart, cart } =
     useContext(ProductsContext)
 
   function handleAddQuantity(id: string) {
@@ -20,6 +20,12 @@ export function CoffeeList() {
   function handleDecreaseQuantity(id: string) {
     decreaseQuantity(id)
   }
+
+  function handleAddToCart(id: string) {
+    addToCart(id)
+  }
+
+  console.log(cart)
 
   return (
     <CoffeeListContainer>
@@ -65,7 +71,11 @@ export function CoffeeList() {
                       />
                     </button>
                   </div>
-                  <CartContainer>
+                  <CartContainer
+                    onClick={() => {
+                      handleAddToCart(coffee.id)
+                    }}
+                  >
                     <ShoppingCart size={22} color="#FFF" weight="fill" />
                   </CartContainer>
                 </AddToCartContainer>
