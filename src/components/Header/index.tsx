@@ -1,8 +1,12 @@
 import { CartContainer, HeaderContainer, LocationContainer } from './styles'
 import logoCoffeeDelivery from '../../assets/logo-coffee-delivery.svg'
 import { MapPin, ShoppingCart } from 'phosphor-react'
+import { useContext } from 'react'
+import { ProductsContext } from '../../context/ProductsContext'
 
 export function Header() {
+  const { cart } = useContext(ProductsContext)
+
   return (
     <HeaderContainer>
       <img
@@ -16,7 +20,7 @@ export function Header() {
           <p>Carapicuíba, SP</p>
         </LocationContainer>
         <CartContainer title="Carrinho">
-          <span>1</span>
+          <span>{cart.length}</span>
           <ShoppingCart
             size={22}
             color="#C47F17"
