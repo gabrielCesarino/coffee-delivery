@@ -9,15 +9,6 @@ import {
   QuantityContainer,
 } from './styles'
 
-// interface CoffeeProps {
-//   id: string
-//   imgLink: string
-//   name: string
-//   description: string
-//   types: string[]
-//   price: number
-// }
-
 export function CoffeeList() {
   const { coffeeList } = useContext(ProductsContext)
 
@@ -50,7 +41,7 @@ export function CoffeeList() {
                     <button>
                       <Minus color="#8047F8" size={14} weight="bold" />
                     </button>
-                    <span>1</span>
+                    <span>{coffee.quantity}</span>
                     <button>
                       <Plus color="#8047F8" size={14} weight="bold" />
                     </button>

@@ -8,6 +8,7 @@ interface CoffeeProps {
   description: string
   types: string[]
   price: number
+  quantity: number
 }
 
 interface ProductsContextType {

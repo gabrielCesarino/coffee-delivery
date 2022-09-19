@@ -12,6 +12,7 @@ export function MockAPI() {
             'O tradicional café feito com água quente e grãos moídos',
           types: ['tradicional'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '2',
@@ -20,6 +21,7 @@ export function MockAPI() {
           description: 'Expresso diluído, menos intenso que o tradicional',
           types: ['tradicional'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '3',
@@ -28,6 +30,7 @@ export function MockAPI() {
           description: 'Café expresso tradicional com espuma cremosa',
           types: ['tradicional'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '4',
@@ -36,6 +39,7 @@ export function MockAPI() {
           description: 'Bebida preparada com café expresso e cubos de gelo',
           types: ['tradicional', 'gelado'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '5',
@@ -45,6 +49,7 @@ export function MockAPI() {
             'Meio a meio de expresso tradicional com leite vaporizado',
           types: ['tradicional', 'com leite'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '6',
@@ -54,6 +59,7 @@ export function MockAPI() {
             'Uma dose de café expresso com o dobro de leite e espuma cremosa',
           types: ['tradicional', 'com leite'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '7',
@@ -63,6 +69,7 @@ export function MockAPI() {
             'Bebida com canela feita de doses iguais de café, leite e espuma',
           types: ['tradicional', 'com leite'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '8',
@@ -72,6 +79,7 @@ export function MockAPI() {
             'Café expresso misturado com um pouco de leite quente e espuma',
           types: ['tradicional', 'com leite'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '9',
@@ -81,6 +89,7 @@ export function MockAPI() {
             'Café expresso com calda de chocolate, pouco leite e espuma',
           types: ['tradicional', 'com leite'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '10',
@@ -90,6 +99,7 @@ export function MockAPI() {
             'Bebida feita com chocolate dissolvido no leite quente e café',
           types: ['especial', 'com leite'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '11',
@@ -99,6 +109,7 @@ export function MockAPI() {
             'Drink gelado de café expresso com rum, creme de leite e hortelã',
           types: ['especial', 'alcoólico', 'gelado'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '12',
@@ -107,6 +118,7 @@ export function MockAPI() {
           description: 'Bebida adocicada preparada com café e leite de coco',
           types: ['especial'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '13',
@@ -115,6 +127,7 @@ export function MockAPI() {
           description: 'Bebida preparada com grãos de café árabe e especiarias',
           types: ['especial'],
           price: 9.9,
+          quantity: 1,
         },
         {
           id: '14',
@@ -124,6 +137,7 @@ export function MockAPI() {
             'Bebida a base de café, uísque irlandês, açúcar e chantilly',
           types: ['especial', 'alcoólico'],
           price: 9.9,
+          quantity: 1,
         },
       ])
     },
