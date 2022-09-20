@@ -9,6 +9,7 @@ import {
   Trash,
 } from 'phosphor-react'
 import {
+  ButtonConfirmOrder,
   CartConfirmationContainer,
   CartItem,
   CartSummaryContainer,
@@ -157,6 +158,7 @@ export function Checkout() {
               <h3>R$ 33,20</h3>
             </div>
           </SummaryContainer>
+          <ButtonConfirmOrder>Confirmar pedido</ButtonConfirmOrder>
         </CartSummaryContainer>
       </CartConfirmationContainer>
     </CheckoutContainer>

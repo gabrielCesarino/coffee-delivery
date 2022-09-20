@@ -199,4 +199,29 @@ export const ItemButtonsContainer = styled.div`
   }
 `
 
-export const SummaryContainer = styled.div``
+export const SummaryContainer = styled.div`
+  margin: 1.5rem 0;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
+`
+export const ButtonConfirmOrder = styled.button`
+  color: ${(props) => props.theme.white};
+  background: ${(props) => props.theme['yellow-500']};
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 0.5rem;
+
+  font-size: 0.875rem;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+  }
+`
