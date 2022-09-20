@@ -229,3 +229,36 @@ export const ButtonConfirmOrder = styled.button`
     cursor: pointer;
   }
 `
+
+export const EmptyCartModal = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+
+  flex-direction: column;
+
+  background: ${(props) => props.theme['gray-500']};
+
+  padding: 2.5rem;
+
+  h2 {
+    text-transform: uppercase;
+  }
+
+  button {
+    color: ${(props) => props.theme.white};
+    background: ${(props) => props.theme['yellow-500']};
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 0.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+
+    margin-top: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`
