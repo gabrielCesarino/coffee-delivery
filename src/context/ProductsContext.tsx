@@ -19,6 +19,7 @@ interface ProductsContextType {
   cart: CoffeeProps[]
   addQuantityOnCart: (id: string) => void
   decreaseQuantityOnCart: (id: string) => void
+  removeItemFromCart: (id: string) => void
 }
 
 export const ProductsContext = createContext({} as ProductsContextType)
@@ -117,6 +118,14 @@ export function ProductsContextProvider({
     setCart(updatedList)
   }
 
+  function removeItemFromCart(currentItemId: string) {
+    const updatedList = cart.filter((item) => item.id !== currentItemId)
+
+    console.log(updatedList)
+
+    setCart(updatedList)
+  }
+
   useEffect(() => {
     fetch('/api/coffeelist')
       .then((response) => response.json())
@@ -133,6 +142,7 @@ export function ProductsContextProvider({
         cart,
         addQuantityOnCart,
         decreaseQuantityOnCart,
+        removeItemFromCart,
       }}
     >
       {children}

@@ -28,8 +28,12 @@ import {
 } from './styles'
 
 export function Checkout() {
-  const { cart, addQuantityOnCart, decreaseQuantityOnCart } =
-    useContext(ProductsContext)
+  const {
+    cart,
+    addQuantityOnCart,
+    decreaseQuantityOnCart,
+    removeItemFromCart,
+  } = useContext(ProductsContext)
 
   return (
     <CheckoutContainer>
@@ -130,7 +134,7 @@ export function Checkout() {
                           />
                         </button>
                       </div>
-                      <button>
+                      <button onClick={() => removeItemFromCart(item.id)}>
                         <Trash color="#8047F8" size={14} />
                         Remover
                       </button>
