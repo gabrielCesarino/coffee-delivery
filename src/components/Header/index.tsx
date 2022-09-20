@@ -7,6 +7,9 @@ import { NavLink } from 'react-router-dom'
 
 export function Header() {
   const { cart } = useContext(ProductsContext)
+  const cartTotal = cart.reduce((total, cartItem) => {
+    return (total += cartItem.quantity)
+  }, 0)
 
   return (
     <HeaderContainer>
@@ -24,7 +27,7 @@ export function Header() {
         </LocationContainer>
         <NavLink to="/checkout">
           <CartContainer title="Carrinho">
-            <span>{cart.length}</span>
+            <span>{cartTotal}</span>
             <ShoppingCart
               size={22}
               color="#C47F17"
