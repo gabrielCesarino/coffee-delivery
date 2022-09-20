@@ -28,7 +28,8 @@ import {
 } from './styles'
 
 export function Checkout() {
-  const { cart } = useContext(ProductsContext)
+  const { cart, addQuantityOnCart, decreaseQuantityOnCart } =
+    useContext(ProductsContext)
 
   return (
     <CheckoutContainer>
@@ -112,11 +113,21 @@ export function Checkout() {
                     <ItemButtonsContainer>
                       <div>
                         <button>
-                          <Minus color="#8047F8" size={14} weight="bold" />
+                          <Minus
+                            color="#8047F8"
+                            size={14}
+                            weight="bold"
+                            onClick={() => decreaseQuantityOnCart(item.id)}
+                          />
                         </button>
                         <span>{item.quantity}</span>
                         <button>
-                          <Plus color="#8047F8" size={14} weight="bold" />
+                          <Plus
+                            color="#8047F8"
+                            size={14}
+                            weight="bold"
+                            onClick={() => addQuantityOnCart(item.id)}
+                          />
                         </button>
                       </div>
                       <button>

@@ -13,18 +13,6 @@ export function CoffeeList() {
   const { coffeeList, addQuantity, decreaseQuantity, addToCart, cart } =
     useContext(ProductsContext)
 
-  function handleAddQuantity(id: string) {
-    addQuantity(id)
-  }
-
-  function handleDecreaseQuantity(id: string) {
-    decreaseQuantity(id)
-  }
-
-  function handleAddToCart(id: string) {
-    addToCart(id)
-  }
-
   console.log(cart)
 
   return (
@@ -55,7 +43,7 @@ export function CoffeeList() {
                   <div>
                     <button>
                       <Minus
-                        onClick={() => handleDecreaseQuantity(coffee.id)}
+                        onClick={() => decreaseQuantity(coffee.id)}
                         color="#8047F8"
                         size={14}
                         weight="bold"
@@ -64,7 +52,7 @@ export function CoffeeList() {
                     <span>{coffee.quantity}</span>
                     <button>
                       <Plus
-                        onClick={() => handleAddQuantity(coffee.id)}
+                        onClick={() => addQuantity(coffee.id)}
                         color="#8047F8"
                         size={14}
                         weight="bold"
@@ -73,7 +61,7 @@ export function CoffeeList() {
                   </div>
                   <CartContainer
                     onClick={() => {
-                      handleAddToCart(coffee.id)
+                      addToCart(coffee.id)
                     }}
                   >
                     <ShoppingCart size={22} color="#FFF" weight="fill" />

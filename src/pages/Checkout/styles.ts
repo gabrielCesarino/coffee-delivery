@@ -101,6 +101,10 @@ export const InputGridContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   input[type='radio']:checked + label {

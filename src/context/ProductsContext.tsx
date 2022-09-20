@@ -17,6 +17,8 @@ interface ProductsContextType {
   decreaseQuantity: (id: string) => void
   addToCart: (id: string) => void
   cart: CoffeeProps[]
+  addQuantityOnCart: (id: string) => void
+  decreaseQuantityOnCart: (id: string) => void
 }
 
 export const ProductsContext = createContext({} as ProductsContextType)
@@ -87,6 +89,34 @@ export function ProductsContextProvider({
     }
   }
 
+  function addQuantityOnCart(currentItemId: string) {
+    const updatedList = cart.map((item) => {
+      if (item.id === currentItemId) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        }
+      } else {
+        return item
+      }
+    })
+    setCart(updatedList)
+  }
+
+  function decreaseQuantityOnCart(currentItemId: string) {
+    const updatedList = cart.map((item) => {
+      if (item.id === currentItemId && item.quantity > 1) {
+        return {
+          ...item,
+          quantity: item.quantity - 1,
+        }
+      } else {
+        return item
+      }
+    })
+    setCart(updatedList)
+  }
+
   useEffect(() => {
     fetch('/api/coffeelist')
       .then((response) => response.json())
@@ -101,6 +131,8 @@ export function ProductsContextProvider({
         decreaseQuantity,
         addToCart,
         cart,
+        addQuantityOnCart,
+        decreaseQuantityOnCart,
       }}
     >
       {children}
