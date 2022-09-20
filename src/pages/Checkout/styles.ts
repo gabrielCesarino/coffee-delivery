@@ -113,6 +113,90 @@ export const PaymentMethodContainer = styled.form`
   background: ${(props) => props.theme['gray-200']};
   border-radius: 6px;
   padding: 2.5rem;
+  margin-bottom: 2rem;
 `
 
-export const CartConfirmation = styled.div``
+export const CartConfirmationContainer = styled.section``
+export const CartSummaryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: ${(props) => props.theme['gray-200']};
+  border-radius: 6px 44px 6px 44px;
+  padding: 2.5rem;
+  margin: 0.75rem 0;
+`
+
+export const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.25rem 2rem;
+  border-bottom: 2px solid ${(props) => props.theme['gray-400']};
+
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
+  p {
+    color: ${(props) => props.theme['gray-900']};
+  }
+
+  p.price {
+    align-self: flex-start;
+    color: ${(props) => props.theme['gray-700']};
+    font-weight: bold;
+  }
+`
+
+export const ItemButtonsContainer = styled.div`
+  display: flex;
+
+  gap: 0.5rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: ${(props) => props.theme['gray-400']};
+    border-radius: 6px;
+    width: 4.5rem;
+    height: 2rem;
+
+    button {
+      color: ${(props) => props.theme['purple-500']};
+      background: ${(props) => props.theme['gray-400']};
+      border: none;
+      border-radius: 6px;
+
+      display: flex;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: ${(props) => props.theme['gray-400']};
+    border: none;
+    border-radius: 6px;
+    padding: 0 0.5rem;
+
+    color: ${(props) => props.theme['gray-700']};
+    text-transform: uppercase;
+    font-size: 0.75rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`
+
+export const SummaryContainer = styled.div``

@@ -3,10 +3,15 @@ import {
   CreditCard,
   CurrencyDollar,
   MapPinLine,
+  Minus,
   Money,
+  Plus,
+  Trash,
 } from 'phosphor-react'
 import {
-  CartConfirmation,
+  CartConfirmationContainer,
+  CartItem,
+  CartSummaryContainer,
   CheckoutContainer,
   CustomerInformationContainer,
   CustomerInformationFormContainer,
@@ -14,7 +19,9 @@ import {
   HeaderFormContainer,
   InputGridContainer,
   InputInformation,
+  ItemButtonsContainer,
   PaymentMethodContainer,
+  SummaryContainer,
 } from './styles'
 
 export function Checkout() {
@@ -87,9 +94,71 @@ export function Checkout() {
           </InputGridContainer>
         </PaymentMethodContainer>
       </CustomerInformationContainer>
-      <CartConfirmation>
+      <CartConfirmationContainer>
         <h3>Cafés selecionados</h3>
-      </CartConfirmation>
+        <CartSummaryContainer>
+          <div>
+            <CartItem>
+              <img src="https://i.ibb.co/sy9CH5W/Image-1.png" alt="" />
+              <div>
+                <p>Expresso Tradicional</p>
+                <ItemButtonsContainer>
+                  <div>
+                    <button>
+                      <Minus color="#8047F8" size={14} weight="bold" />
+                    </button>
+                    <span>1</span>
+                    <button>
+                      <Plus color="#8047F8" size={14} weight="bold" />
+                    </button>
+                  </div>
+                  <button>
+                    <Trash color="#8047F8" size={14} />
+                    Remover
+                  </button>
+                </ItemButtonsContainer>
+              </div>
+              <p className="price">R$ 9,90</p>
+            </CartItem>
+            <CartItem>
+              <img src="https://i.ibb.co/sy9CH5W/Image-1.png" alt="" />
+              <div>
+                <p>Expresso Tradicional</p>
+                <ItemButtonsContainer>
+                  <div>
+                    <button>
+                      <Minus color="#8047F8" size={14} weight="bold" />
+                    </button>
+                    <span>1</span>
+                    <button>
+                      <Plus color="#8047F8" size={14} weight="bold" />
+                    </button>
+                  </div>
+                  <button>
+                    <Trash color="#8047F8" size={14} />
+                    Remover
+                  </button>
+                </ItemButtonsContainer>
+              </div>
+              <p className="price">R$ 9,90</p>
+            </CartItem>
+          </div>
+          <SummaryContainer>
+            <div>
+              <p>Total de itens</p>
+              <span>R$ 29,70</span>
+            </div>
+            <div>
+              <p>Entrega</p>
+              <span>R$ 3,50</span>
+            </div>
+            <div>
+              <h3>Total</h3>
+              <h3>R$ 33,20</h3>
+            </div>
+          </SummaryContainer>
+        </CartSummaryContainer>
+      </CartConfirmationContainer>
     </CheckoutContainer>
   )
 }
