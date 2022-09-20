@@ -81,20 +81,31 @@ export const InputGridContainer = styled.div`
   display: flex;
   align-items: center;
 
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
   label {
     align-items: center;
     position: relative;
     text-transform: uppercase;
     border-radius: 6px;
+    border: 1px solid transparent;
+
     background-color: ${(props) => props.theme['gray-400']};
 
     padding: 1rem;
+
     font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   input[type='radio']:checked + label {
     background: ${(props) => props.theme['purple-100']};
-    border: 1px solid ${(props) => props.theme['purple-700']};
+    border: 1px solid ${(props) => props.theme['purple-500']};
   }
 `
 
