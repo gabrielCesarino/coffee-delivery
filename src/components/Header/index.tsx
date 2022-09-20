@@ -10,11 +10,13 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <img
-        src={logoCoffeeDelivery}
-        alt="Coffee Delivery"
-        title="Coffee Delivery"
-      />
+      <NavLink to="/">
+        <img
+          src={logoCoffeeDelivery}
+          alt="Coffee Delivery"
+          title="Coffee Delivery"
+        />
+      </NavLink>
       <nav>
         <LocationContainer>
           <MapPin size={22} color="#8047F8" weight="fill" />
