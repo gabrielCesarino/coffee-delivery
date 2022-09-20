@@ -8,6 +8,8 @@ import {
   Plus,
   Trash,
 } from 'phosphor-react'
+import { useContext } from 'react'
+import { ProductsContext } from '../../context/ProductsContext'
 import {
   ButtonConfirmOrder,
   CartConfirmationContainer,
@@ -26,6 +28,8 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const { cart } = useContext(ProductsContext)
+
   return (
     <CheckoutContainer>
       <CustomerInformationContainer>
@@ -99,50 +103,37 @@ export function Checkout() {
         <h3>Cafés selecionados</h3>
         <CartSummaryContainer>
           <div>
-            <CartItem>
-              <img src="https://i.ibb.co/sy9CH5W/Image-1.png" alt="" />
-              <div>
-                <p>Expresso Tradicional</p>
-                <ItemButtonsContainer>
+            {cart.map((item) => {
+              return (
+                <CartItem key={item.id}>
+                  <img src={item.imgLink} alt="" />
                   <div>
-                    <button>
-                      <Minus color="#8047F8" size={14} weight="bold" />
-                    </button>
-                    <span>1</span>
-                    <button>
-                      <Plus color="#8047F8" size={14} weight="bold" />
-                    </button>
+                    <p>{item.name}</p>
+                    <ItemButtonsContainer>
+                      <div>
+                        <button>
+                          <Minus color="#8047F8" size={14} weight="bold" />
+                        </button>
+                        <span>{item.quantity}</span>
+                        <button>
+                          <Plus color="#8047F8" size={14} weight="bold" />
+                        </button>
+                      </div>
+                      <button>
+                        <Trash color="#8047F8" size={14} />
+                        Remover
+                      </button>
+                    </ItemButtonsContainer>
                   </div>
-                  <button>
-                    <Trash color="#8047F8" size={14} />
-                    Remover
-                  </button>
-                </ItemButtonsContainer>
-              </div>
-              <p className="price">R$ 9,90</p>
-            </CartItem>
-            <CartItem>
-              <img src="https://i.ibb.co/sy9CH5W/Image-1.png" alt="" />
-              <div>
-                <p>Expresso Tradicional</p>
-                <ItemButtonsContainer>
-                  <div>
-                    <button>
-                      <Minus color="#8047F8" size={14} weight="bold" />
-                    </button>
-                    <span>1</span>
-                    <button>
-                      <Plus color="#8047F8" size={14} weight="bold" />
-                    </button>
-                  </div>
-                  <button>
-                    <Trash color="#8047F8" size={14} />
-                    Remover
-                  </button>
-                </ItemButtonsContainer>
-              </div>
-              <p className="price">R$ 9,90</p>
-            </CartItem>
+                  <p className="price">
+                    R${' '}
+                    {(item.price * item.quantity).toLocaleString('pt-br', {
+                      minimumFractionDigits: 2,
+                    })}
+                  </p>
+                </CartItem>
+              )
+            })}
           </div>
           <SummaryContainer>
             <div>
