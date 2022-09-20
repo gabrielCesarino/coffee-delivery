@@ -20,6 +20,9 @@ interface ProductsContextType {
   addQuantityOnCart: (id: string) => void
   decreaseQuantityOnCart: (id: string) => void
   removeItemFromCart: (id: string) => void
+  newTotal: number
+  orderTotal: number
+  DELIVERY_PRICE: number
 }
 
 export const ProductsContext = createContext({} as ProductsContextType)
@@ -34,6 +37,13 @@ export function ProductsContextProvider({
   MockAPI()
   const [coffeeList, setCoffeeList] = useState<CoffeeProps[]>([])
   const [cart, setCart] = useState<CoffeeProps[]>([])
+  const newTotal = cart.reduce((total, cartItem) => {
+    return (total += cartItem.quantity * cartItem.price)
+  }, 0)
+
+  const DELIVERY_PRICE = 3.5
+
+  const orderTotal = newTotal + DELIVERY_PRICE
 
   function addQuantity(currentCoffeeId: string) {
     const updatedList = coffeeList.map((coffee) => {
@@ -143,6 +153,9 @@ export function ProductsContextProvider({
         addQuantityOnCart,
         decreaseQuantityOnCart,
         removeItemFromCart,
+        newTotal,
+        DELIVERY_PRICE,
+        orderTotal,
       }}
     >
       {children}

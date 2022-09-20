@@ -33,6 +33,9 @@ export function Checkout() {
     addQuantityOnCart,
     decreaseQuantityOnCart,
     removeItemFromCart,
+    newTotal,
+    DELIVERY_PRICE,
+    orderTotal,
   } = useContext(ProductsContext)
 
   return (
@@ -153,15 +156,30 @@ export function Checkout() {
           <SummaryContainer>
             <div>
               <p>Total de itens</p>
-              <span>R$ 29,70</span>
+              <span>
+                R${' '}
+                {newTotal.toLocaleString('pt-br', {
+                  minimumFractionDigits: 2,
+                })}
+              </span>
             </div>
             <div>
               <p>Entrega</p>
-              <span>R$ 3,50</span>
+              <span>
+                R${' '}
+                {DELIVERY_PRICE.toLocaleString('pt-br', {
+                  minimumFractionDigits: 2,
+                })}
+              </span>
             </div>
             <div>
               <h3>Total</h3>
-              <h3>R$ 33,20</h3>
+              <h3>
+                R${' '}
+                {orderTotal.toLocaleString('pt-br', {
+                  minimumFractionDigits: 2,
+                })}
+              </h3>
             </div>
           </SummaryContainer>
           <ButtonConfirmOrder>Confirmar pedido</ButtonConfirmOrder>
