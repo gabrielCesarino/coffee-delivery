@@ -1,12 +1,20 @@
-import { CurrencyDollar, MapPinLine } from 'phosphor-react'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from 'phosphor-react'
 import {
   CartConfirmation,
   CheckoutContainer,
   CustomerInformationContainer,
+  CustomerInformationFormContainer,
   FormContainer,
   HeaderFormContainer,
   InputGridContainer,
-  PaymentContainer,
+  InputInformation,
+  PaymentMethodContainer,
 } from './styles'
 
 export function Checkout() {
@@ -14,7 +22,7 @@ export function Checkout() {
     <CheckoutContainer>
       <CustomerInformationContainer>
         <h3>Complete seu pedido</h3>
-        <FormContainer>
+        <CustomerInformationFormContainer>
           <HeaderFormContainer>
             <span>
               <MapPinLine size={22} color="#C47F17" />
@@ -24,19 +32,17 @@ export function Checkout() {
               <p>Informe o endereço onde deseja receber o seu pedido</p>
             </div>
           </HeaderFormContainer>
-          <input type="text" placeholder="CEP" />
-          <input type="text" placeholder="Rua" />
-          <InputGridContainer>
-            <input type="number" placeholder="Número" />
-            <input type="text" placeholder="Complemento" />
-          </InputGridContainer>
-          <InputGridContainer>
-            <input type="text" placeholder="Bairro" />
-            <input type="text" placeholder="Cidade" />
-            <input type="text" placeholder="UF" />
-          </InputGridContainer>
-        </FormContainer>
-        <FormContainer>
+          <FormContainer>
+            <InputInformation type="text" placeholder="CEP" />
+            <InputInformation type="text" placeholder="Rua" />
+            <InputInformation type="number" placeholder="Número" />
+            <InputInformation type="text" placeholder="Complemento" />
+            <InputInformation type="text" placeholder="Bairro" />
+            <InputInformation type="text" placeholder="Cidade" />
+            <InputInformation type="text" placeholder="UF" />
+          </FormContainer>
+        </CustomerInformationFormContainer>
+        <PaymentMethodContainer>
           <HeaderFormContainer>
             <span>
               <CurrencyDollar size={22} color="#8047F8" />
@@ -50,15 +56,36 @@ export function Checkout() {
           </HeaderFormContainer>
           <InputGridContainer>
             <form>
-              <input type="radio" id="cartaoCredito" name="paymentMethod" />
-              <label htmlFor="cartaoCredito">Cartão de Crédito</label>
-              <input type="radio" id="cartaoDebito" name="paymentMethod" />
-              <label htmlFor="cartaoDebito">Cartão de Débito</label>
-              <input type="radio" id="dinheiro" name="paymentMethod" />
-              <label htmlFor="dinheiro">Dinheiro</label>
+              <InputInformation
+                type="radio"
+                id="cartaoCredito"
+                name="paymentMethod"
+              />
+              <label htmlFor="cartaoCredito">
+                <CreditCard size={22} color="#8047F8" />
+                Cartão de Crédito
+              </label>
+              <InputInformation
+                type="radio"
+                id="cartaoDebito"
+                name="paymentMethod"
+              />
+              <label htmlFor="cartaoDebito">
+                <Bank size={22} color="#8047F8" />
+                Cartão de Débito
+              </label>
+              <InputInformation
+                type="radio"
+                id="dinheiro"
+                name="paymentMethod"
+              />
+              <label htmlFor="dinheiro">
+                <Money size={22} color="#8047F8" />
+                Dinheiro
+              </label>
             </form>
           </InputGridContainer>
-        </FormContainer>
+        </PaymentMethodContainer>
       </CustomerInformationContainer>
       <CartConfirmation>
         <h3>Cafés selecionados</h3>
