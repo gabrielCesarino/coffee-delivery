@@ -39,6 +39,7 @@ export function Checkout() {
     newTotal,
     DELIVERY_PRICE,
     orderTotal,
+    handleSetOrder,
   } = useContext(ProductsContext)
 
   const { register, handleSubmit } = useForm()
@@ -48,7 +49,7 @@ export function Checkout() {
       cart,
     }
 
-    console.log(newOrder)
+    handleSetOrder(newOrder)
   }
 
   if (cart.length > 0) {

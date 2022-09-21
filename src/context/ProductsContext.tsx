@@ -22,7 +22,7 @@ interface orderProps {
     uf: string
     paymentMethod: string
   }
-  cart: CoffeeProps
+  cart: CoffeeProps[]
 }
 
 interface ProductsContextType {
@@ -154,7 +154,6 @@ export function ProductsContextProvider({
 
   function handleSetOrder(newOrder: orderProps) {
     setOrder(newOrder)
-    console.log(order)
   }
 
   useEffect(() => {
