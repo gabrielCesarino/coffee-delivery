@@ -9,6 +9,7 @@ import {
   Trash,
 } from 'phosphor-react'
 import { useContext } from 'react'
+import { useForm } from 'react-hook-form'
 import { NavLink } from 'react-router-dom'
 import { ProductsContext } from '../../context/ProductsContext'
 import {
@@ -40,6 +41,9 @@ export function Checkout() {
     orderTotal,
   } = useContext(ProductsContext)
 
+  const { register, handleSubmit } = useForm()
+  const onSubmit = (d) => alert(JSON.stringify(d))
+
   if (cart.length > 0) {
     return (
       <CheckoutContainer>
@@ -56,13 +60,41 @@ export function Checkout() {
               </div>
             </HeaderFormContainer>
             <FormContainer>
-              <InputInformation type="text" placeholder="CEP" />
-              <InputInformation type="text" placeholder="Rua" />
-              <InputInformation type="number" placeholder="Número" />
-              <InputInformation type="text" placeholder="Complemento" />
-              <InputInformation type="text" placeholder="Bairro" />
-              <InputInformation type="text" placeholder="Cidade" />
-              <InputInformation type="text" placeholder="UF" />
+              <InputInformation
+                {...register('cep')}
+                type="text"
+                placeholder="CEP"
+              />
+              <InputInformation
+                {...register('rua')}
+                type="text"
+                placeholder="Rua"
+              />
+              <InputInformation
+                {...register('numero')}
+                type="number"
+                placeholder="Número"
+              />
+              <InputInformation
+                {...register('complemento')}
+                type="text"
+                placeholder="Complemento"
+              />
+              <InputInformation
+                {...register('bairro')}
+                type="text"
+                placeholder="Bairro"
+              />
+              <InputInformation
+                {...register('cidade')}
+                type="text"
+                placeholder="Cidade"
+              />
+              <InputInformation
+                {...register('uf')}
+                type="text"
+                placeholder="UF"
+              />
             </FormContainer>
           </CustomerInformationFormContainer>
           <PaymentMethodContainer>
@@ -81,7 +113,9 @@ export function Checkout() {
             <InputGridContainer>
               <form>
                 <InputInformation
+                  {...register('paymentMethod')}
                   type="radio"
+                  value="cartaoCredito"
                   id="cartaoCredito"
                   name="paymentMethod"
                 />
@@ -90,7 +124,9 @@ export function Checkout() {
                   Cartão de Crédito
                 </label>
                 <InputInformation
+                  {...register('paymentMethod')}
                   type="radio"
+                  value="cartaoDebito"
                   id="cartaoDebito"
                   name="paymentMethod"
                 />
@@ -99,7 +135,9 @@ export function Checkout() {
                   Cartão de Débito
                 </label>
                 <InputInformation
+                  {...register('paymentMethod')}
                   type="radio"
+                  value="dinheiro"
                   id="dinheiro"
                   name="paymentMethod"
                 />
@@ -186,7 +224,9 @@ export function Checkout() {
                 </h3>
               </div>
             </SummaryContainer>
-            <ButtonConfirmOrder>Confirmar pedido</ButtonConfirmOrder>
+            <ButtonConfirmOrder onClick={handleSubmit(onSubmit)}>
+              Confirmar pedido
+            </ButtonConfirmOrder>
           </CartSummaryContainer>
         </CartConfirmationContainer>
       </CheckoutContainer>
