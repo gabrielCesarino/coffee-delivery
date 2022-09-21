@@ -42,7 +42,14 @@ export function Checkout() {
   } = useContext(ProductsContext)
 
   const { register, handleSubmit } = useForm()
-  const onSubmit = (d) => alert(JSON.stringify(d))
+  const onSubmit = (data: any) => {
+    const newOrder = {
+      customer: data,
+      cart,
+    }
+
+    console.log(newOrder)
+  }
 
   if (cart.length > 0) {
     return (

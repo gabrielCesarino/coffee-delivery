@@ -11,6 +11,20 @@ interface CoffeeProps {
   quantity: number
 }
 
+interface orderProps {
+  customer: {
+    cep: string
+    rua: string
+    numero: number
+    complemento: string
+    bairro: string
+    cidade: string
+    uf: string
+    paymentMethod: string
+  }
+  cart: CoffeeProps
+}
+
 interface ProductsContextType {
   coffeeList: CoffeeProps[]
   addQuantity: (id: string) => void
@@ -20,6 +34,7 @@ interface ProductsContextType {
   addQuantityOnCart: (id: string) => void
   decreaseQuantityOnCart: (id: string) => void
   removeItemFromCart: (id: string) => void
+  handleSetOrder: (order: orderProps) => void
   newTotal: number
   orderTotal: number
   DELIVERY_PRICE: number
@@ -37,6 +52,7 @@ export function ProductsContextProvider({
   MockAPI()
   const [coffeeList, setCoffeeList] = useState<CoffeeProps[]>([])
   const [cart, setCart] = useState<CoffeeProps[]>([])
+  const [order, setOrder] = useState<orderProps>()
   const newTotal = cart.reduce((total, cartItem) => {
     return (total += cartItem.quantity * cartItem.price)
   }, 0)
@@ -136,6 +152,11 @@ export function ProductsContextProvider({
     setCart(updatedList)
   }
 
+  function handleSetOrder(newOrder: orderProps) {
+    setOrder(newOrder)
+    console.log(order)
+  }
+
   useEffect(() => {
     fetch('/api/coffeelist')
       .then((response) => response.json())
@@ -156,6 +177,7 @@ export function ProductsContextProvider({
         newTotal,
         DELIVERY_PRICE,
         orderTotal,
+        handleSetOrder,
       }}
     >
       {children}
