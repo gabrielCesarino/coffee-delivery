@@ -1,3 +1,9 @@
+import { useContext } from 'react'
+import { useForm } from 'react-hook-form'
+import { NavLink } from 'react-router-dom'
+import { ProductsContext } from '../../context/ProductsContext'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import {
   Bank,
   CreditCard,
@@ -8,10 +14,7 @@ import {
   Plus,
   Trash,
 } from 'phosphor-react'
-import { useContext } from 'react'
-import { useForm } from 'react-hook-form'
-import { NavLink } from 'react-router-dom'
-import { ProductsContext } from '../../context/ProductsContext'
+
 import {
   ButtonConfirmOrder,
   CartConfirmationContainer,
@@ -30,6 +33,23 @@ import {
   EmptyCartModal,
 } from './styles'
 
+const FormSchema = z.object({
+  cep: z.string(),
+  rua: z.string(),
+  numero: z.string(),
+  complemento: z.string().optional(),
+  bairro: z.string(),
+  cidade: z.string(),
+  uf: z.string(),
+  paymentMethod: z.string().refine((val) => {
+    return (
+      val === 'dinheiro' || val === 'cartaoCredito' || val === 'cartaoDebito'
+    )
+  }),
+})
+
+type FormSchemaType = z.infer<typeof FormSchema>
+
 export function Checkout() {
   const {
     cart,
@@ -42,13 +62,20 @@ export function Checkout() {
     handleSetOrder,
   } = useContext(ProductsContext)
 
-  const { register, handleSubmit } = useForm()
-  const onSubmit = (data: any) => {
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormSchemaType>({
+    resolver: zodResolver(FormSchema),
+  })
+
+  const onSubmit = (data: FormSchemaType) => {
     const newOrder = {
       customer: data,
       cart,
     }
-
     handleSetOrder(newOrder)
   }
 
@@ -236,6 +263,7 @@ export function Checkout() {
               Confirmar pedido
             </ButtonConfirmOrder>
           </CartSummaryContainer>
+          <pre>{JSON.stringify(watch(), null, 2)}</pre>
         </CartConfirmationContainer>
       </CheckoutContainer>
     )

@@ -15,8 +15,8 @@ interface orderProps {
   customer: {
     cep: string
     rua: string
-    numero: number
-    complemento: string
+    numero: string
+    complemento?: string
     bairro: string
     cidade: string
     uf: string
@@ -154,6 +154,7 @@ export function ProductsContextProvider({
 
   function handleSetOrder(newOrder: orderProps) {
     setOrder(newOrder)
+    console.log(newOrder)
   }
 
   useEffect(() => {
