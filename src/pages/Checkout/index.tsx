@@ -34,13 +34,13 @@ import {
 } from './styles'
 
 const FormSchema = z.object({
-  cep: z.string(),
-  rua: z.string(),
+  cep: z.string().min(1),
+  rua: z.string().min(1),
   numero: z.string(),
   complemento: z.string().optional(),
-  bairro: z.string(),
-  cidade: z.string(),
-  uf: z.string(),
+  bairro: z.string().min(1),
+  cidade: z.string().min(1),
+  uf: z.string().min(1),
   paymentMethod: z.string().refine((val) => {
     return (
       val === 'dinheiro' || val === 'cartaoCredito' || val === 'cartaoDebito'
