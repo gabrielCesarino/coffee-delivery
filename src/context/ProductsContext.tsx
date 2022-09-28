@@ -38,7 +38,7 @@ interface ProductsContextType {
   newTotal: number
   orderTotal: number
   DELIVERY_PRICE: number
-  order: orderProps
+  order?: orderProps
 }
 
 export const ProductsContext = createContext({} as ProductsContextType)
