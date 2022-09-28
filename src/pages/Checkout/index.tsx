@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+
 import { ProductsContext } from '../../context/ProductsContext'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -71,12 +72,16 @@ export function Checkout() {
     resolver: zodResolver(FormSchema),
   })
 
+  const navigate = useNavigate()
+
   const onSubmit = (data: FormSchemaType) => {
     const newOrder = {
       customer: data,
       cart,
     }
     handleSetOrder(newOrder)
+
+    navigate('/order-confirmed')
   }
 
   if (cart.length > 0) {
