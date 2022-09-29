@@ -1,8 +1,11 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { DeliveryInformationContainer, OrderContainer } from './style'
 import illustration from '../../assets/illustration.png'
+import { useContext } from 'react'
+import { ProductsContext } from '../../context/ProductsContext'
 
 export function OrderConfirmed() {
+  const { order } = useContext(ProductsContext)
   return (
     <OrderContainer>
       <div>
@@ -16,9 +19,9 @@ export function OrderConfirmed() {
             </span>
             <div>
               <p>
-                Entrega em <strong>Joao</strong>
+                Entrega em <strong>{order?.customer.rua}</strong>
               </p>
-              <p>Farrapos</p>
+              <p>{order?.customer.cidade}</p>
             </div>
           </li>
           <li>
@@ -36,7 +39,7 @@ export function OrderConfirmed() {
             </span>
             <div>
               <p>Pagamento na entrega</p>
-              <strong>Cartão de Crédito</strong>
+              <strong>{order?.customer.paymentMethod}</strong>
             </div>
           </li>
         </DeliveryInformationContainer>

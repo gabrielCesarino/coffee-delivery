@@ -70,6 +70,7 @@ export const DeliveryInformationContainer = styled.div`
 
     p,
     strong {
+      text-transform: capitalize;
       line-height: 0.825rem;
     }
   }
