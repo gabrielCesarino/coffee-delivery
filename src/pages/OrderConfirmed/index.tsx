@@ -1,6 +1,6 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { DeliveryInformationContainer, OrderContainer } from './style'
-import illustration from '../../assets/illustration.png'
+
 import { useContext } from 'react'
 import { ProductsContext } from '../../context/ProductsContext'
 
@@ -43,12 +43,6 @@ export function OrderConfirmed() {
             </div>
           </li>
         </DeliveryInformationContainer>
-      </div>
-      <div>
-        <img
-          src={illustration}
-          alt="Imagem ilustrativa de homem em uma moto levando a entrega"
-        />
       </div>
     </OrderContainer>
   )
