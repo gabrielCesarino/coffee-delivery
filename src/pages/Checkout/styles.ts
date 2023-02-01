@@ -159,12 +159,12 @@ export const CartItem = styled.div`
     align-self: flex-start;
     color: ${(props) => props.theme['gray-700']};
     font-weight: bold;
+    width: 2rem;
   }
 `
 
 export const ItemButtonsContainer = styled.div`
   display: flex;
-
   gap: 0.5rem;
 
   div {
@@ -173,7 +173,7 @@ export const ItemButtonsContainer = styled.div`
     justify-content: space-around;
     background: ${(props) => props.theme['gray-400']};
     border-radius: 6px;
-    width: 4.5rem;
+    width: 5rem;
     height: 2rem;
 
     button {
@@ -191,6 +191,7 @@ export const ItemButtonsContainer = styled.div`
 
     span {
       font-weight: 400;
+      width: 1rem;
     }
   }
 

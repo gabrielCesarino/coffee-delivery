@@ -114,6 +114,7 @@ export const AddToCartContainer = styled.div`
 
     span {
       font-weight: 400;
+      width: 1rem;
     }
   }
 `
