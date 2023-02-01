@@ -6,6 +6,17 @@ import { ProductsContext } from '../../context/ProductsContext'
 
 export function OrderConfirmed() {
   const { order } = useContext(ProductsContext)
+  const paymentMethodFormatted = () => {
+    switch (order?.customer.paymentMethod) {
+      case 'cartaoCredito':
+        return 'Cartão de Crédito'
+      case 'dinheiro':
+        return 'Dinheiro'
+      case 'cartaoDebito':
+        return 'Cartão de Débito'
+    }
+  }
+
   return (
     <OrderContainer>
       <div>
@@ -39,7 +50,7 @@ export function OrderConfirmed() {
             </span>
             <div>
               <p>Pagamento na entrega</p>
-              <strong>{order?.customer.paymentMethod}</strong>
+              <strong>{paymentMethodFormatted()}</strong>
             </div>
           </li>
         </DeliveryInformationContainer>
