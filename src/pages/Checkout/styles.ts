@@ -46,7 +46,11 @@ export const HeaderFormContainer = styled.div`
 `
 
 export const BaseInput = styled.input`
-  border: 1px solid ${(props) => props.theme['gray-400']};
+  border: 1px solid
+    ${(props) =>
+      props.className?.includes('error')
+        ? props.theme['red-900']
+        : props.theme['gray-400']};
   border-radius: 4px;
   padding: 0.75rem;
   outline: none;
@@ -86,6 +90,7 @@ export const InputGridContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
   }
+
   label {
     align-items: center;
     position: relative;
@@ -118,6 +123,11 @@ export const PaymentMethodContainer = styled.form`
   border-radius: 6px;
   padding: 2.5rem;
   margin-bottom: 2rem;
+  border: 1px solid
+    ${(props) =>
+      props.className?.includes('error')
+        ? props.theme['red-900']
+        : 'transparent'};
 `
 
 export const CartConfirmationContainer = styled.section``

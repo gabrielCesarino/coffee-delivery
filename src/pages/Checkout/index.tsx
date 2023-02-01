@@ -65,7 +65,6 @@ export function Checkout() {
 
   const {
     register,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<FormSchemaType>({
@@ -104,40 +103,47 @@ export function Checkout() {
                 {...register('cep')}
                 type="text"
                 placeholder="CEP"
+                className={errors.cep && 'error'}
               />
               <InputInformation
                 {...register('rua')}
                 type="text"
                 placeholder="Rua"
+                className={errors.rua && 'error'}
               />
               <InputInformation
                 {...register('numero')}
                 type="number"
                 placeholder="Número"
+                className={errors.numero && 'error'}
               />
               <InputInformation
                 {...register('complemento')}
                 type="text"
                 placeholder="Complemento"
+                className={errors.complemento && 'error'}
               />
               <InputInformation
                 {...register('bairro')}
                 type="text"
                 placeholder="Bairro"
+                className={errors.bairro && 'error'}
               />
               <InputInformation
                 {...register('cidade')}
                 type="text"
                 placeholder="Cidade"
+                className={errors.cidade && 'error'}
               />
               <InputInformation
                 {...register('uf')}
                 type="text"
                 placeholder="UF"
+                className={errors.uf && 'error'}
               />
             </FormContainer>
           </CustomerInformationFormContainer>
-          <PaymentMethodContainer>
+          <PaymentMethodContainer className={errors.paymentMethod && 'error'}>
             <HeaderFormContainer>
               <span>
                 <CurrencyDollar size={22} color="#8047F8" />
@@ -268,7 +274,6 @@ export function Checkout() {
               Confirmar pedido
             </ButtonConfirmOrder>
           </CartSummaryContainer>
-          <pre>{JSON.stringify(watch(), null, 2)}</pre>
         </CartConfirmationContainer>
       </CheckoutContainer>
     )
